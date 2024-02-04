@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # K8
-RUN wget -O- https://github.com/attractivechaos/k8/releases/download/v1.0/k8-1.0.tar.bz2 | tar xj - && \
+RUN wget -O- https://github.com/attractivechaos/k8/releases/download/v1.0/k8-1.0.tar.bz2 | tar xj && \
     mv k8*/k8*Linux /usr/local/bin/k8
 
 # Minimap2
