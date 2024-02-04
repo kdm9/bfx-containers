@@ -16,10 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./src/Agent/Dockerfile
-            image: ghcr.io/${{ github.actor }}/image1
-          - dockerfile: ./src/Dockerfile-dril4net-distribution
-            image: ghcr.io/${{ github.actor }}/image2
+          - dockerfile: ./glnexus-bcftools/Dockerfiles
+            image: ghcr.io/${{ github.actor }}/glnexus-bcftools
     permissions:
       contents: read
       packages: write
