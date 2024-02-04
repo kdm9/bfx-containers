@@ -20,7 +20,7 @@ jobs:
       matrix:
         include:
           - dockerfile: ./glnexus-bcftools/Dockerfile
-            image: ${{env.REGISTRY}}/${{ github.actor }}/glnexus-bcftools
+            image: ${{ env.REGISTRY }}/${{ github.actor }}/glnexus-bcftools
     permissions:
       contents: read
       packages: write
