@@ -21,6 +21,8 @@ jobs:
         include:
           - dockerfile: ./glnexus-bcftools/Dockerfile
             image: ghcr.io/${{ github.actor }}/glnexus-bcftools
+          - dockerfile: ./minimap2-samtools/Dockerfile
+            image: ghcr.io/${{ github.actor }}/minimap2-samtools
     permissions:
       contents: read
       packages: write
