@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./glnexus-bcftools/Dockerfiles
+          - dockerfile: ./glnexus-bcftools/Dockerfile
             image: ghcr.io/${{ github.actor }}/glnexus-bcftools
     permissions:
       contents: read
