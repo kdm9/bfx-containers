@@ -12,14 +12,14 @@ RUN wget -O- https://github.com/attractivechaos/k8/releases/download/v1.0/k8-1.0
 
 # Minimap2
 RUN wget -qO- "https://github.com/lh3/minimap2/releases/download/v2.26/minimap2-2.26.tar.bz2" | tar xj && \
-    cd minimap2-* && \
-    make && \
-    chmod a+x minimap2 && \
+    cd minimap2-* && make && chmod a+x minimap2 && \
     mv minimap2 misc/paftools.js /usr/local/bin/ && \
-    cd .. && \
-    rm -rf minimap2-*
+    cd .. && rm -rf minimap2-*
+
+# samtools
+RUN wget -qO- "https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2" | tar xj && \
+    cd samtools-* && ./configure && make && make install && cd .. && rm -rf samtools-*
 
 FROM ubuntu:22.04
 COPY --from=builder /usr/local/ /usr/local/
 CMD minimap2
-
