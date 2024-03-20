@@ -5,7 +5,7 @@ ARG ADAPTERREMOVAL_VERSION=2.3.3
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get -y install gcc libncurses5-dev libncursesw5-dev cmake pkg-config \
-                       zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libdeflate-dev \
+                       zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev \
                        build-essential wget && \
     rm -rf /var/lib/apt/lists/*
 
