@@ -23,6 +23,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/glnexus-bcftools
           - dockerfile: ./minimap2-samtools/Dockerfile
             image: ghcr.io/${{ github.actor }}/minimap2-samtools
+          - dockerfile: ./rnana/Dockerfile
+            image: ghcr.io/${{ github.actor }}/rnana
     permissions:
       contents: read
       packages: write
