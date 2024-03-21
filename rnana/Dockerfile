@@ -9,6 +9,12 @@ RUN apt-get update && \
                        build-essential wget && \
     rm -rf /var/lib/apt/lists/*
 
+RUN wget -O- -q https://github.com/madler/pigz/archive/refs/tags/v2.8.tar.gz | \
+    tar xvz  && \
+    cd pigz-* && \
+    make LDFLAGS+=-static pigz && \
+    mv pigz unpigz /usr/local/bin
+
 RUN wget -O- -q https://github.com/kdm9/seqhax/archive/refs/tags/${SEQHAX_VERSION}.tar.gz |  \
     tar xvz  && \
     cd seqhax-${SEQHAX_VERSION} && \
@@ -27,11 +33,9 @@ RUN wget -O- -q https://github.com/MikkelSchubert/adapterremoval/archive/v${ADAP
     make STATIC=yes && \
     make install
 
-
 FROM ubuntu:22.04
 COPY --from=builder /usr/local/ /usr/local/
 RUN apt-get update && \
     apt-get -y install bash pigz samtools && \
     rm -rf /var/lib/apt/lists/*
 CMD /bin/bash
-
