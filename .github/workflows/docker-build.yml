@@ -25,6 +25,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/minimap2-samtools
           - dockerfile: ./rnana/Dockerfile
             image: ghcr.io/${{ github.actor }}/rnana
+          - dockerfile: ./varcall/Dockerfile
+            image: ghcr.io/${{ github.actor }}/varcall
     permissions:
       contents: read
       packages: write
