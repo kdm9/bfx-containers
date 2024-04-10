@@ -27,6 +27,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/rnana
           - dockerfile: ./varcall/Dockerfile
             image: ghcr.io/${{ github.actor }}/varcall
+          - dockerfile: ./align/Dockerfile
+            image: ghcr.io/${{ github.actor }}/align
     permissions:
       contents: read
       packages: write
