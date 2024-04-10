@@ -1,9 +1,8 @@
 FROM ubuntu:22.04 AS builder
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-    apt-get -y install gcc libncurses5-dev libncursesw5-dev \
-                       zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libssl-dev \
-                       build-essential wget git meson ninja-build parallel pkg-config cmake && \
+    apt-get -y install gcc zlib1g-dev  \
+                       build-essential wget git pkg-config cmake && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/local/share/man/man1/
@@ -32,6 +31,6 @@ RUN wget -q -O- https://github.com/lh3/minimap2/releases/download/v${MM2_VERSION
 FROM ubuntu:22.04
 COPY --from=builder /usr/local/ /usr/local/
 RUN apt-get update && \
-    apt-get -y install libcurl4 libbz2-1.0 zlib1g libssl3 libncurses5 libncursesw5 liblzma5 wget parallel python3 && \
+    apt-get -y install libcurl4 libbz2-1.0 zlib1g libssl3 libncurses5 libncursesw5 liblzma5 wget curl perl  && \
     rm -rf /var/lib/apt/lists/*
 CMD /bin/bash
