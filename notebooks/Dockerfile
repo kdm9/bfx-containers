@@ -4,7 +4,7 @@ ARG PORT=31888
 RUN apt-get update && \
     apt-get -y install gcc r-base-core zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libssl-dev \
                        build-essential wget git meson ninja-build parallel pkg-config cmake \
-                       python3-all-dev python3-pip pipx npm nodejs \
+                       python3-all-dev python3-pip pipx npm nodejs zsh \
                        && \
     rm -rf /var/lib/apt/lists/*
 
