@@ -13,7 +13,7 @@ RUN apt-get update && \
 RUN python3 -m pip install --break-system-packages jupyterlab jupyterlab nbconvert jupytext bash_kernel papermill jedi-language-server && \
     python3 -m bash_kernel.install && \
     npm install -g bash-language-server && \
-    Rscript -e 'install.packages(c("IRkernel", "languageserver", "tidyverse")); IRkernel::installspec()' 
+    Rscript -e 'install.packages(c("IRkernel", "languageserver")); IRkernel::installspec()' 
 
 
 CMD "jupyter lab --ip 0.0.0.0 --port ${PORT} --no-browser"
