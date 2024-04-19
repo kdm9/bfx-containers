@@ -29,6 +29,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/varcall
           - dockerfile: ./align/Dockerfile
             image: ghcr.io/${{ github.actor }}/align
+          - dockerfile: ./notebooks/Dockerfile
+            image: ghcr.io/${{ github.actor }}/notebooks
     permissions:
       contents: read
       packages: write
