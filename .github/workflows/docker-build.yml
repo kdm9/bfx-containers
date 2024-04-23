@@ -19,19 +19,19 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./glnexus-bcftools/Dockerfile
+          - dir: ./glnexus-bcftools
             image: ghcr.io/${{ github.actor }}/glnexus-bcftools
-          - dockerfile: ./minimap2-samtools/Dockerfile
+          - dir: ./minimap2-samtools
             image: ghcr.io/${{ github.actor }}/minimap2-samtools
-          - dockerfile: ./rnana/Dockerfile
+          - dir: ./rnana
             image: ghcr.io/${{ github.actor }}/rnana
-          - dockerfile: ./varcall/Dockerfile
+          - dir: ./varcall
             image: ghcr.io/${{ github.actor }}/varcall
-          - dockerfile: ./align/Dockerfile
+          - dir: ./align
             image: ghcr.io/${{ github.actor }}/align
-          - dockerfile: ./notebooks/Dockerfile
+          - dir: ./notebooks
             image: ghcr.io/${{ github.actor }}/notebooks
-          - dockerfile: ./mash/Dockerfile
+          - dir: ./mash
             image: ghcr.io/${{ github.actor }}/mash
     permissions:
       contents: read
@@ -79,8 +79,8 @@ jobs:
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         id: build-and-push
         with:
-          context: .
-          file: ${{ matrix.dockerfile }}
+          context: ${{ matrix.dir }}
+          file: Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
