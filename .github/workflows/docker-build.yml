@@ -80,7 +80,7 @@ jobs:
         id: build-and-push
         with:
           context: ${{ matrix.dir }}
-          file: Dockerfile
+          file: ${{ matrix.dir }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
