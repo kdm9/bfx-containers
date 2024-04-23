@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 RUN mkdir /root/src
 WORKDIR /root/src
-ADD ./link-capnp.patch /root/src
+ADD . /root/src
 RUN wget -q -O- https://github.com/marbl/Mash/archive/refs/tags/v2.3.tar.gz | tar xvz &&  \
 	cd Mash-* && \
     patch Makefile.in /root/src/link-capnp.patch && \
