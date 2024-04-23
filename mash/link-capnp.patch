@@ -1,0 +1,14 @@
+2a3
+> LDFLAGS += -static -static-libgcc -static-libstdc++
+9,10c10,11
+< 	CXXFLAGS += -include src/mash/memcpyLink.h -Wl,--wrap=memcpy
+< 	CFLAGS += -include src/mash/memcpyLink.h
+---
+> 	#CXXFLAGS += -include src/mash/memcpyLink.h -Wl,--wrap=memcpy
+> 	#CFLAGS += -include src/mash/memcpyLink.h
+40,41c41,42
+< mash : libmash.a src/mash/memcpyWrap.o
+< 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o mash src/mash/memcpyWrap.o libmash.a @capnp@/lib/libcapnp.a @capnp@/lib/libkj.a @mathlib@ -lstdc++ -lz -lm -lpthread
+---
+> mash : libmash.a 
+> 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o mash libmash.a -lcapnp -lkj @mathlib@ -lstdc++ -lz -lm -lpthread
