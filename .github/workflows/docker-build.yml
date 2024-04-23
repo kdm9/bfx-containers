@@ -31,6 +31,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/align
           - dockerfile: ./notebooks/Dockerfile
             image: ghcr.io/${{ github.actor }}/notebooks
+          - dockerfile: ./mash/Dockerfile
+            image: ghcr.io/${{ github.actor }}/mash
     permissions:
       contents: read
       packages: write
