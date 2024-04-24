@@ -10,7 +10,7 @@ RUN apt-get update && \
                        && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --break-system-packages jupyterlab jupyterlab nbconvert jupytext bash_kernel papermill jedi-language-server && \
+RUN python3 -m pip install --break-system-packages jupyterlab jupyterlab-vim nbconvert jupytext bash_kernel papermill jedi-language-server && \
     python3 -m bash_kernel.install && \
     npm install -g bash-language-server && \
     Rscript -e 'install.packages(c("IRkernel", "languageserver")); IRkernel::installspec()' 
