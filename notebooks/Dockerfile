@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM ubuntu:24.04
 ARG PORT=31888
 
 RUN apt-get update && \
