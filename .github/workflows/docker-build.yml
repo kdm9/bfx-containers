@@ -25,6 +25,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/minimap2-samtools
           - dir: ./rnana
             image: ghcr.io/${{ github.actor }}/rnana
+          - dir: ./rnana2
+            image: ghcr.io/${{ github.actor }}/rnana2
           - dir: ./varcall
             image: ghcr.io/${{ github.actor }}/varcall
           - dir: ./align
