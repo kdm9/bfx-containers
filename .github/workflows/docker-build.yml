@@ -39,6 +39,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/acanthophis-qc
           - dir: ./acanthophis-diamond
             image: ghcr.io/${{ github.actor }}/acanthophis-diamond
+          - dir: ./kraken2
+            image: ghcr.io/${{ github.actor }}/kraken2
     permissions:
       contents: read
       packages: write
