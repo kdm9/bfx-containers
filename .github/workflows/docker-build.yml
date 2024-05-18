@@ -35,6 +35,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/notebooks
           - dir: ./mash
             image: ghcr.io/${{ github.actor }}/mash
+          - dir: ./acanthophis-qc
+            image: ghcr.io/${{ github.actor }}/acanthophis-qc
           - dir: ./acanthophis-diamond
             image: ghcr.io/${{ github.actor }}/acanthophis-diamond
     permissions:
