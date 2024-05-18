@@ -25,6 +25,6 @@ FROM ubuntu:24.04
 COPY --from=builder /usr/local/ /usr/local/
 COPY --from=builder /opt/ /opt/
 RUN apt-get update && \
-    apt-get -y install libcurl4 libbz2-1.0 zlib1g wget parallel python3 zstd && \
+    apt-get -y install libcurl4 libbz2-1.0 libgomp1 zlib1g wget parallel python3 zstd && \
     rm -rf /var/lib/apt/lists/*
 CMD /bin/bash
