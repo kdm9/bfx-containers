@@ -6,7 +6,8 @@ RUN apt-get update && \
                        libtiff-dev libcairo2-dev libxml2-dev libxslt1-dev libfreetype-dev libharfbuzz-dev \
                        libgdal-dev libfribidi-dev libudunits2-dev libunwind-dev \
                        build-essential wget git meson ninja-build parallel pkg-config cmake \
-                       python3-all-dev python3-pip pipx npm nodejs zsh locales \
+                       python3-all-dev python3-pip pipx npm nodejs zsh locales zstd \
+                       htop tmux curl vim-full \ 
                        && \
     echo 'en_GB.UTF-8 UTF-8' >/etc/locale.gen && locale-gen && \
     rm -rf /var/lib/apt/lists/*
@@ -18,8 +19,8 @@ RUN python3 -m pip install --break-system-packages jupyterlab jupyterlab-vim nbc
 
 RUN wget -q https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh &&  \
     bash Miniforge3-Linux-x86_64.sh -b -p /opt/conda/ &&  \
-    echo 'source "/opt/conda/etc/profile.d/conda.sh"' >>/etc/profile.d/mamba.sh && \
-    echo 'source "/opt/conda/etc/profile.d/mamba.sh"' >>/etc/profile.d/mamba.sh && \
+    echo 'source "/opt/conda/etc/profile.d/conda.sh"' >>/etc/profile.d/conda.sh && \
+    echo 'source "/opt/conda/etc/profile.d/mamba.sh"' >>/etc/profile.d/conda.sh && \
     echo 'source "/opt/conda/etc/profile.d/conda.sh"' >>/etc/zshenv && \
     echo 'source "/opt/conda/etc/profile.d/mamba.sh"' >>/etc/zshenv
 
