@@ -7,13 +7,14 @@ RUN apt-get update && \
                        libgdal-dev libfribidi-dev libudunits2-dev libunwind-dev \
                        build-essential wget git meson ninja-build parallel pkg-config cmake \
                        python3-all-dev python3-pip pipx npm nodejs zsh locales zstd \
-                       htop tmux curl vim-full \ 
+                       htop tmux curl vim \ 
                        && \
     echo 'en_GB.UTF-8 UTF-8' >/etc/locale.gen && locale-gen && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --break-system-packages jupyterlab jupyterlab-vim nbconvert jupytext bash_kernel papermill jedi-language-server && \
+RUN python3 -m pip install --break-system-packages jupyterlab nbconvert jupytext bash_kernel papermill jedi-language-server && \
     python3 -m bash_kernel.install && \
+    jupyter labextension install jupyterlab_vim && \
     npm install -g bash-language-server && \
     Rscript -e 'install.packages(c("IRkernel", "languageserver")); IRkernel::installspec()' 
 
