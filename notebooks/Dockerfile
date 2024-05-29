@@ -12,9 +12,8 @@ RUN apt-get update && \
     echo 'en_GB.UTF-8 UTF-8' >/etc/locale.gen && locale-gen && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --break-system-packages jupyterlab nbconvert jupytext bash_kernel papermill jedi-language-server && \
+RUN python3 -m pip install --break-system-packages jupyterlab jupterlab-vim nbconvert jupytext bash_kernel papermill jedi-language-server && \
     python3 -m bash_kernel.install && \
-    jupyter labextension install jupyterlab_vim && \
     npm install -g bash-language-server && \
     Rscript -e 'install.packages(c("IRkernel", "languageserver")); IRkernel::installspec()' 
 
