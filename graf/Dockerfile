@@ -33,6 +33,14 @@ RUN cd /work/ && \
     cmake -H. -Bbuild && cmake --build build -- -j 8 && \
     cp -v bin/smoothxg /usr/local/bin/
 
+ARG ODGI_VERSION=0.8.6
+RUN cd /work/ && \
+    wget -q -O- https://github.com/pangenome/odgi/releases/download/v${ODGI_VERSION}/odgi-v${ODGI_VERSION}.tar.gz | \
+    tar xvz && \
+    cd odgi* && \
+    cmake -DBUILD_STATIC=1  -H. -Bbuild && cmake --build build -- -j 8 && \
+    cp -v bin/odgi /usr/local/bin/
+
 FROM ubuntu:24.04
 COPY --from=builder /usr/local/ /usr/local/
 RUN apt-get update && \
