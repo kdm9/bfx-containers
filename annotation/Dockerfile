@@ -28,12 +28,17 @@ RUN wget -q -O- https://github.com/lh3/miniprot/releases/download/v${MINIPROT_VE
     mv miniprot-*/miniprot /usr/local/bin/ && \
     mv miniprot-*/*.1 /usr/local/share/man/man1/ 
 
+RUN git clone https://github.com/gpertea/gffread.git && \
+    cd gffread && \
+    make static && \
+    cp gffread /usr/local/bin/ 
+
 FROM ubuntu:24.04
 COPY --from=builder /usr/local/ /usr/local/
 RUN apt-get update && \
     apt-get -y install \
         libcurl4 libbz2-1.0 zlib1g libssl3 libncurses6 libncursesw6 liblzma5 wget parallel python3 \
-        zstd pigz python3-pip pipx git tabix\
+        zstd pigz python3-pip pipx git tabix python3-gffutils default-jre bedtools \
     && \
     rm -rf /var/lib/apt/lists/*
 
