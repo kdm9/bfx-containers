@@ -41,6 +41,13 @@ RUN cd /work/ && \
     cmake -DBUILD_STATIC=1  -H. -Bbuild && cmake --build build -- -j 8 && \
     cp -v bin/odgi /usr/local/bin/
 
+ARG GFAFFIX_VERSION=0.1.5b
+RUN cd /work/ && \
+    wget -q -O- https://github.com/marschall-lab/GFAffix/releases/download/${GFAFFIX_VERSION}/GFAffix-${GFAFFIX_VERSION}_linux_x86_64.tar.gz | \
+    tar xzv && \
+    cp GFAffix-*linux_x86_64/gfaffix /usr/local/bin
+
+
 FROM ubuntu:24.04
 COPY --from=builder /usr/local/ /usr/local/
 RUN apt-get update && \
