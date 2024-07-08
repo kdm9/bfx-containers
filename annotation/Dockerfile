@@ -39,7 +39,7 @@ RUN apt-get update && \
     apt-get -y install \
         libcurl4 libbz2-1.0 zlib1g libssl3 libncurses6 libncursesw6 liblzma5 wget parallel python3 \
         zstd pigz python3-pip pipx git tabix python3-gffutils default-jre bedtools \
-    && \
+	augustus augustus-data augustus-doc && \
     rm -rf /var/lib/apt/lists/*
 
 RUN PIPX_BIN_DIR=/usr/local/bin \
