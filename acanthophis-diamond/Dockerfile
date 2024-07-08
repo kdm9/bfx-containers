@@ -1,4 +1,5 @@
 FROM ubuntu:24.04
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get -y install wget python3-pip zstd xz-utils && \
     rm -rf /var/lib/apt/lists/*
