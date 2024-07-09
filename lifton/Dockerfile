@@ -18,7 +18,7 @@ RUN mkdir -p /tmp/miniprot && \
 
 RUN python3 -m venv /opt/lifton  && \
     /opt/lifton/bin/pip install lifton https://github.com/agshumate/Liftoff/archive/refs/heads/master.zip && \
-    ln -s /opt/lifton/bin/lift{on,off} /usr/local/bin/
+    ln -s /opt/lifton/bin/liftoff /opt/lifton/bin/gffutils-cli /opt/lifton/bin/faidx /opt/lifton/bin/lifton  /usr/local/bin/
 
 CMD /bin/bash
 
