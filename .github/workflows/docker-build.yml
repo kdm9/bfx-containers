@@ -49,6 +49,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/acanthophis-diamond
           - dir: ./acanthophis-taxonid
             image: ghcr.io/${{ github.actor }}/acanthophis-taxonid
+          - dir: ./acanthophis-plass
+            image: ghcr.io/${{ github.actor }}/acanthophis-plass
     permissions:
       contents: read
       packages: write
