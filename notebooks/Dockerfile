@@ -17,7 +17,7 @@ RUN python3 -m pip install --break-system-packages \
         papermill jedi-language-server && \
     python3 -m bash_kernel.install && \
     npm install -g bash-language-server && \
-    Rscript -e 'install.packages(c("IRkernel", "languageserver")); IRkernel::installspec()' 
+    Rscript -e 'install.packages(c("IRkernel", "languageserver")); IRkernel::installspec(user=F)' 
 
 RUN wget -q https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh &&  \
     bash Miniforge3-Linux-x86_64.sh -b -p /opt/conda/ &&  \
