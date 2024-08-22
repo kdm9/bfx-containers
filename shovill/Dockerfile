@@ -60,6 +60,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libbz2-dev \
   liblzma-dev \
   libcurl4-gnutls-dev \
+  patch \
   libssl-dev \
   libfindbin-libs-perl && \
   apt-get clean && apt-get autoclean && \
