@@ -53,6 +53,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/acanthophis-plass
           - dir: ./kaddy
             image: ghcr.io/${{ github.actor }}/kaddy
+          - dir: ./shovill
+            image: ghcr.io/${{ github.actor }}/shovill
     permissions:
       contents: read
       packages: write
