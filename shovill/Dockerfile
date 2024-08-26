@@ -15,7 +15,7 @@ ARG FLASH_VER="1.2.11"
 # also not sure if this upgraded pilon version is compatible, previously used 1.22
 ARG PILON_VER="1.24"
 
-FROM ubuntu:xenial as app
+FROM ubuntu:xenial AS app
 
 # reinstantiating variables so they are available in app FROM layer
 ARG SHOVILL_VER
@@ -39,8 +39,8 @@ LABEL software.version="1.1.0"
 LABEL description="faster than SPAdes de novo DBG genome assembler (with assembler options!)"
 LABEL website="https://github.com/tseemann/shovill"
 LABEL lisence="https://github.com/tseemann/shovill/blob/master/LICENSE"
-LABEL maintainer="Curtis Kapsak"
-LABEL maintainer.email="kapsakcj@gmail.com"
+LABEL maintainer="Kevin Murray"
+LABEL maintainer.email="foss@kdmurray.id.au"
 
 # install dependencies, cleanup apt garbage
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -204,7 +204,7 @@ ENV PATH="${PATH}:\
      LC_ALL=C
 
 # test layer
-FROM app as test
+FROM APP as test
 
 # reinstantiating variable so it's available for cd cmd below
 ARG SHOVILL_VER
