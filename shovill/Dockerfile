@@ -204,7 +204,7 @@ ENV PATH="${PATH}:\
      LC_ALL=C
 
 # test layer
-FROM APP as test
+FROM app AS test
 
 # reinstantiating variable so it's available for cd cmd below
 ARG SHOVILL_VER
@@ -231,3 +231,4 @@ shovill --outdir out.skesa --assembler skesa --R1 test/R1.fq.gz --R2 test/R2.fq.
 grep '>' out.velvet/contigs.fa
 
 RUN shovill --help && shovill --check && shovill --version
+FROM app as real
