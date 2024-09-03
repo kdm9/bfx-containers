@@ -15,15 +15,19 @@ RUN cd /work/ && \
     tar xvz && \
     cd seqwish* && \
     cmake -DBUILD_STATIC=1 -H. -Bbuild && cmake --build build -- -j 8 && \
-    cp -v bin/* /usr/local/bin/
+    cd build && \
+    make -j4 && \
+    make install
 
 ARG WFMASH_VERSION=0.14.0
 RUN cd /work/ && \
     wget -q -O- https://github.com/waveygang/wfmash/releases/download/v${WFMASH_VERSION}/wfmash-v${WFMASH_VERSION}.tar.gz | \
     tar xvz && \
     cd wfmash* && \
-    cmake -DCMAKE_BUILD_TYPE=Generic -H. -Bbuild && cmake --build build -- -j 8 && \
-    cp -v build/bin/wfmash /usr/local/bin/
+    cmake -DCMAKE_BUILD_TYPE=Generic -H. -Bbuild  && \
+    cd build && \
+    make -j4 && \
+    make install
 
 ARG SMOOTHXG_VERSION=0.7.4
 RUN cd /work/ && \
@@ -31,7 +35,9 @@ RUN cd /work/ && \
     tar xvz && \
     cd smoothxg* && \
     cmake -H. -Bbuild && cmake --build build -- -j 8 && \
-    cp -v bin/smoothxg /usr/local/bin/
+    cd build && \
+    make -j4 && \
+    make install
 
 ARG ODGI_VERSION=0.8.6
 RUN cd /work/ && \
@@ -39,7 +45,9 @@ RUN cd /work/ && \
     tar xvz && \
     cd odgi* && \
     cmake -DBUILD_STATIC=1  -H. -Bbuild && cmake --build build -- -j 8 && \
-    cp -v bin/odgi /usr/local/bin/
+    cd build && \
+    make -j4 && \
+    make install
 
 ARG GFAFFIX_VERSION=0.1.5b
 RUN cd /work/ && \
@@ -48,15 +56,7 @@ RUN cd /work/ && \
     cp GFAffix-*linux_x86_64/gfaffix /usr/local/bin
 
 
-FROM ubuntu:24.04
-COPY --from=builder /usr/local/ /usr/local/
-RUN apt-get update && \
-    apt-get -y install \
-        libcurl4 libbz2-1.0 zlib1g libssl3 libncurses6 libncursesw6 liblzma5 \
-        libzstd1 libjemalloc2 \
-        python3-pip pipx \
-        zstd pigz tabix wget parallel python3 samtools \
-    && \
-    rm -rf /var/lib/apt/lists/*
+ENV LD_LIBRARY_PATH /usr/lib/:/usr/local/lib:/usr/lib/x86_64-linux-gnu/
+RUN rm -rf /work
 
 CMD /bin/bash
