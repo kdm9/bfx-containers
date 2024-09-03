@@ -37,6 +37,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/mash
           - dir: ./hampcr
             image: ghcr.io/${{ github.actor }}/hampcr
+          - dir: ./graf
+            image: ghcr.io/${{ github.actor }}/graf
           - dir: ./dysgu
             image: ghcr.io/${{ github.actor }}/dysgu
           - dir: ./lifton
