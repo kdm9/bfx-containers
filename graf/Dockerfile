@@ -19,12 +19,12 @@ RUN cd /work/ && \
     make -j4 && \
     make install
 
-ARG WFMASH_VERSION=0.14.0
+ARG WFMASH_VERSION=0.21.0
 RUN cd /work/ && \
     wget -q -O- https://github.com/waveygang/wfmash/releases/download/v${WFMASH_VERSION}/wfmash-v${WFMASH_VERSION}.tar.gz | \
     tar xvz && \
     cd wfmash* && \
-    cmake -DCMAKE_BUILD_TYPE=Generic -H. -Bbuild  && \
+    cmake -DBUILD_STATIC=1 -DCMAKE_BUILD_TYPE=Generic -H. -Bbuild  && \
     cd build && \
     make -j4 && \
     make install
@@ -34,7 +34,7 @@ RUN cd /work/ && \
     wget -q -O- https://github.com/pangenome/smoothxg/releases/download/v${SMOOTHXG_VERSION}/smoothxg-v${SMOOTHXG_VERSION}.tar.gz | \
     tar xvz && \
     cd smoothxg* && \
-    cmake -H. -Bbuild && cmake --build build -- -j 8 && \
+    cmake -DBUILD_STATIC=1 -H. -Bbuild && cmake --build build -- -j 8 && \
     cd build && \
     make -j4 && \
     make install
@@ -58,5 +58,6 @@ RUN cd /work/ && \
 
 ENV LD_LIBRARY_PATH /usr/lib/:/usr/local/lib:/usr/lib/x86_64-linux-gnu/
 RUN rm -rf /work
+RUN seqwish; wfmash ; smoothxg; odgi; gfaffix;
 
 CMD /bin/bash
