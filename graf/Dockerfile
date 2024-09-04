@@ -58,6 +58,6 @@ RUN cd /work/ && \
 
 ENV LD_LIBRARY_PATH /usr/lib/:/usr/local/lib:/usr/lib/x86_64-linux-gnu/
 RUN rm -rf /work
-RUN seqwish; wfmash ; smoothxg; odgi; gfaffix;
+RUN seqwish -h ; wfmash -h ; smoothxg -h; odgi version -h; gfaffix -h
 
 CMD /bin/bash
