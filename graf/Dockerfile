@@ -19,15 +19,20 @@ RUN cd /work/ && \
     make -j4 && \
     make install
 
-ARG WFMASH_VERSION=0.21.0
+#ARG WFMASH_VERSION=0.21.0
+#RUN cd /work/ && \
+#    wget -q -O- https://github.com/waveygang/wfmash/releases/download/v${WFMASH_VERSION}/wfmash-v${WFMASH_VERSION}.tar.gz | \
+#    tar xvz && \
+#    cd wfmash* && \
+#    cmake -DBUILD_STATIC=1 -DCMAKE_BUILD_TYPE=Generic -H. -Bbuild  && \
+#    cd build && \
+#    make -j4 && \
+#    make install
+
 RUN cd /work/ && \
-    wget -q -O- https://github.com/waveygang/wfmash/releases/download/v${WFMASH_VERSION}/wfmash-v${WFMASH_VERSION}.tar.gz | \
-    tar xvz && \
-    cd wfmash* && \
-    cmake -DBUILD_STATIC=1 -DCMAKE_BUILD_TYPE=Generic -H. -Bbuild  && \
-    cd build && \
-    make -j4 && \
-    make install
+    git clone https://github.com/waveygang/wfmash.git && \
+    cd wfmash && \
+    cmake -H. -Bbuild -DBUILD_RETARGETABLE=ON -DBUILD_STATIC=ON && cmake --build build -- -j 8 && cmake --install build 
 
 ARG SMOOTHXG_VERSION=0.7.4
 RUN cd /work/ && \
