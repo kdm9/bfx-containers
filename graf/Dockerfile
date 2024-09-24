@@ -30,8 +30,9 @@ RUN cd /work/ && \
 #    make install
 
 RUN cd /work/ && \
-    git clone https://github.com/waveygang/wfmash.git && \
+    git clone https://github.com/kdm9/wfmash.git && \
     cd wfmash && \
+    git checkout kdm9-paf-fix && \
     cmake -H. -Bbuild -DBUILD_RETARGETABLE=ON -DBUILD_STATIC=ON && cmake --build build -- -j 8 && cmake --install build 
 
 ARG SMOOTHXG_VERSION=0.7.4
