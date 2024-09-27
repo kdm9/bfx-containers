@@ -57,6 +57,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/kaddy
           - dir: ./shovill
             image: ghcr.io/${{ github.actor }}/shovill
+          - dir: ./goleft
+            image: ghcr.io/${{ github.actor }}/goleft
     permissions:
       contents: read
       packages: write
