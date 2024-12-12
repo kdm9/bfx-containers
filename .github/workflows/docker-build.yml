@@ -59,6 +59,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/shovill
           - dir: ./goleft
             image: ghcr.io/${{ github.actor }}/goleft
+          - dir: ./prodigal
+            image: ghcr.io/${{ github.actor }}/prodigal
     permissions:
       contents: read
       packages: write
