@@ -3,7 +3,7 @@ ARG PORT=31888
 
 RUN apt-get update && \
     apt-get -y install gcc r-base-core zlib1g-dev libbz2-dev libzmq3-dev liblzma-dev libcurl4-openssl-dev libssl-dev \
-                       libtiff-dev libcairo2-dev libxml2-dev libxslt1-dev libfreetype-dev libharfbuzz-dev \
+                       libtiff-dev libcairo2-dev libxml2-dev libxslt1-dev libfreetype-dev libharfbuzz-dev libglpk-dev \
                        libgdal-dev libfribidi-dev libudunits2-dev libunwind-dev \
                        build-essential wget git meson ninja-build parallel pkg-config cmake \
                        python3-all-dev python3-pip pipx npm nodejs zsh locales zstd \
