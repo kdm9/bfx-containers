@@ -7,7 +7,7 @@ RUN apt-get update && \
 RUN pip install --break-system-packages "blindschleiche>=0.3.1"
 
 RUN mkdir /tmp/build && cd /tmp/build \
-    && wget -O- -q https://github.com/bbuchfink/diamond/releases/download/v2.1.9/diamond-linux64.tar.gz | tar xzv \
+    && wget -O- -q https://github.com/bbuchfink/diamond/releases/download/v2.1.12/diamond-linux64.tar.gz | tar xzv \
     && mv diamond /usr/local/bin \
     && cd / && rm -rf /tmp/build
 
