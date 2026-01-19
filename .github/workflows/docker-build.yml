@@ -61,6 +61,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/goleft
           - dir: ./prodigal
             image: ghcr.io/${{ github.actor }}/prodigal
+          - dir: ./eviann
+            image: ghcr.io/${{ github.actor }}/eviann
     permissions:
       contents: read
       packages: write
