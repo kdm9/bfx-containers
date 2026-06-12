@@ -45,6 +45,8 @@ jobs:
             image: ghcr.io/${{ github.actor }}/lifton
           - dir: ./annotation
             image: ghcr.io/${{ github.actor }}/annotation
+          - dir: ./ntrk/
+            image: ghcr.io/${{ github.actor }}/ntrk
           - dir: ./acanthophis-qc
             image: ghcr.io/${{ github.actor }}/acanthophis-qc
           - dir: ./acanthophis-diamond
