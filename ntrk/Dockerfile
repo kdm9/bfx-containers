@@ -2,7 +2,7 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND noninteractive
 ADD https://github.com/kdm9/NLRtracker/archive/refs/heads/master.zip /nlrtracker.zip
 RUN apt-get update && \
-    apt-get -y install r-base-dev r-recommended r-cran-tidyverse hmmer unzip && \
+    apt-get -y install r-base-dev r-recommended r-cran-tidyverse r-bioc-biostrings hmmer unzip && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /opt/ && \
     cd /opt/ && \
